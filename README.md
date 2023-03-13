@@ -28,7 +28,6 @@ sudo pip3 install Adafruit_DHT
 ### 3. Connect the geiger counter to the Raspberry Pi 4 via a USB port. Install the pyserial package using the following command:
 ```
 sudo pip3 install pyserial
-
 ```
 
 ### 4. Create a new Python file called app.py and copy the following code into it:
