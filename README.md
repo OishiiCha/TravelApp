@@ -15,22 +15,22 @@
   
 ## Here are the steps to set up the application:
 
-### 1. Connect the GPS module to the Raspberry Pi 4 via a USB port. Install the gpsd package using the following command:
+#### 1. Connect the GPS module to the Raspberry Pi 4 via a USB port. Install the gpsd package using the following command:
 ```
 sudo apt-get install gpsd gpsd-clients python-gps
 ```
 
-### 2. Connect the temperature and humidity sensor to the Raspberry Pi 4 using GPIO pins. Install the Adafruit_DHT package using the following command:
+#### 2. Connect the temperature and humidity sensor to the Raspberry Pi 4 using GPIO pins. Install the Adafruit_DHT package using the following command:
 ```
 sudo pip3 install Adafruit_DHT
 ```
 
-### 3. Connect the geiger counter to the Raspberry Pi 4 via a USB port. Install the pyserial package using the following command:
+#### 3. Connect the geiger counter to the Raspberry Pi 4 via a USB port. Install the pyserial package using the following command:
 ```
 sudo pip3 install pyserial
 ```
 
-### 4. Create a new Python file called app.py and copy the following code into it:
+#### 4. Create a new Python file called app.py and copy the following code into it:
 ```
 from flask import Flask, render_template
 from gps import gps, WATCH_ENABLE
@@ -137,7 +137,7 @@ def get_past_data_from_db():
 
 This code defines a Flask application with a single route that renders a template called 'index.html'. The route uses several helper functions to get the current GPS location, temperature, humidity, and geiger counter data, save the data to a SQLite database, and retrieve the past 10 data points from the database. The 'index.html' template will be responsible for displaying the data on the web page.
 
-### 5. Create a new directory called templates and create a new file called index.html inside this directory. Copy the following code into it:
+#### 5. Create a new directory called templates and create a new file called index.html inside this directory. Copy the following code into it:
 ```
 <!DOCTYPE html>
 <html>
@@ -217,16 +217,16 @@ This code defines a Flask application with a single route that renders a templat
 ```
 This code defines an HTML page that displays the current and past sensor data and a Google Maps widget that displays the current and past GPS locations. Note that you will need to replace YOUR_API_KEY with your own Google Maps API key.
 
-### 6. Open a terminal window and navigate to the directory where you saved app.py. Run the following command to start the Flask application:
+#### 6. Open a terminal window and navigate to the directory where you saved app.py. Run the following command to start the Flask application:
 ```
 export FLASK_APP=app.py
 flask run --host=0.0.0.0
 ```
 This will start the Flask application and make it available to other devices on the same network. Make a note of the IP address of your Raspberry Pi (which you can find by running 'ifconfig' in a terminal window) and the port number that Flask is running on (which will be displayed in the terminal output).
 
-### 7. On your Android device, open a web browser and navigate to the IP address and port number of your Raspberry Pi (e.g. 'http://192.168.0.10:5000'). You should see the sensor data displayed on the web page. If you don't see the GPS data or the Google Maps widget, make sure you have entered your Google Maps API key in index.html.
+#### 7. On your Android device, open a web browser and navigate to the IP address and port number of your Raspberry Pi (e.g. 'http://192.168.0.10:5000'). You should see the sensor data displayed on the web page. If you don't see the GPS data or the Google Maps widget, make sure you have entered your Google Maps API key in index.html.
 
-### 8. To see the sensor data update in real-time, you can create a simple Android app that periodically refreshes the web page. To do this, create a new Android project in Android Studio and add a 'WebView' to the main activity layout. Then, in the 'onCreate' method of the main activity, add the following code:
+#### 8. To see the sensor data update in real-time, you can create a simple Android app that periodically refreshes the web page. To do this, create a new Android project in Android Studio and add a 'WebView' to the main activity layout. Then, in the 'onCreate' method of the main activity, add the following code:
 ```
 WebView webView = findViewById(R.id.webView);
 webView.setWebViewClient(new WebViewClient());
@@ -247,5 +247,5 @@ new Handler().postDelayed(new Runnable() {
 
 This will refresh the web page every 10 seconds using a 'Handler'.
 
-### 9. Run the Android app on your device and you should see the sensor data updating in real-time. You can also use the app to view the past sensor data and GPS locations on the Google Maps widget.
+#### 9. Run the Android app on your device and you should see the sensor data updating in real-time. You can also use the app to view the past sensor data and GPS locations on the Google Maps widget.
 
